@@ -1,0 +1,26 @@
+{
+  "name": "@jsimck/eslint-config",
+  "version": "0.1.0",
+  "description": "Very opinionated eslint config I use on my projects, includes: prettier, TS, jest, sonarqube and plugin-unicorn. It uses new eslint flat config.",
+  "type": "module",
+  "main": "./index.js",
+  "devDependencies": {
+    "eslint": "^8.35.0"
+  },
+  "scripts": {
+    "lint": "eslint './**/*.{js,ts,jsx,tsx,cjs,mjs}'"
+  },
+  "peerDependencies": {
+    "eslint": ">=8"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "@typescript-eslint/parser": "^5.54.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-import-resolver-typescript": "^3.5.3",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "prettier": "^2.8.4"
+  }
+}
