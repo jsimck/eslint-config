@@ -1,5 +1,11 @@
 # @jsimck/eslint-config
 
+## 1.1.0
+
+### Minor Changes
+
+- [`3713940`](https://github.com/jsimck/eslint-config/commit/371394013aad3e1fdbbe9f50132cfef98fafe869) Thanks [@jsimck](https://github.com/jsimck)! - Added additional React/JSX custom rules
+
 ## 1.0.1
 
 ### Patch Changes
