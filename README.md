@@ -1,5 +1,5 @@
 # @jsimck/eslint-config
-Very opinionated eslint config I use on my projects, includes: prettier, TS, jest, sonarqube and plugin-unicorn. It uses new eslint flat config.
+Very opinionated eslint config I use on my projects, includes: prettier, react, TS. It uses new **eslint flat config** format.
 
 ## Install
 ```
