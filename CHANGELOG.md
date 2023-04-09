@@ -1,5 +1,11 @@
 # @jsimck/eslint-config
 
+## 1.1.1
+
+### Patch Changes
+
+- [`d344cb9`](https://github.com/jsimck/eslint-config/commit/d344cb99f2d579bf8948d3580203d17de07b368a) Thanks [@jsimck](https://github.com/jsimck)! - Testing CI release
+
 ## 1.1.0
 
 ### Minor Changes
