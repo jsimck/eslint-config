@@ -9,7 +9,7 @@
     "eslint": "^8.35.0"
   },
   "scripts": {
-    "release": "changeset version && changeset publish",
+    "release": "changeset publish",
     "changeset": "changeset add",
     "lint": "eslint './**/*.{js,ts,jsx,tsx,cjs,mjs}'"
   },
