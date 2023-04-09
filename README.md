@@ -10,9 +10,9 @@ npm i -D eslint @jsimck/eslint-config
 Create `eslint.config.js` in the root of your directory with following contents:
 
 ```js
-import jsimckConfig from '@jsimck/eslint-config';
+import baseConfig from '@jsimck/eslint-config';
 
-export default [...jsimckConfig];
+export default [...baseConfig];
 ```
 
 ### Running eslint
