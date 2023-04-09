@@ -30,6 +30,7 @@ export default [
           varsIgnorePattern: '^_',
           destructuredArrayIgnorePattern: '^_',
           ignoreRestSiblings: true,
+          args: 'none',
         },
       ],
       '@typescript-eslint/no-namespace': ['error', { allowDeclarations: true }],
