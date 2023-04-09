@@ -1,6 +1,6 @@
 {
   "name": "@jsimck/eslint-config",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Very opinionated eslint config I use on my projects, includes: prettier, TS, jest, sonarqube and plugin-unicorn. It uses new eslint flat config.",
   "type": "module",
   "main": "./index.js",
