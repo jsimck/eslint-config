@@ -31,6 +31,9 @@ jobs:
       - if: github.ref != 'refs/heads/main'
         name: Create Release Pull Request
         uses: changesets/action@v1
+        with:
+          title: Release Version
+          commit: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
