@@ -5,6 +5,7 @@
   "type": "module",
   "main": "./index.js",
   "devDependencies": {
+    "@changesets/changelog-github": "^0.4.8",
     "eslint": "^8.35.0"
   },
   "scripts": {
