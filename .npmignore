@@ -1,4 +1,5 @@
 **/*
-!rules/**
+!src/**
 !index.js
 !LICENSE
+!dist/**
