@@ -1,5 +1,5 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import { FlatCompat } from '@eslint/eslintrc';
 
@@ -19,7 +19,7 @@ export default [
         {
           singleQuote: true,
           semi: true,
-          trailingComma: 'es5',
+          trailingComma: 'all',
           jsxSingleQuote: true,
           bracketSameLine: false,
           arrowParens: 'avoid',

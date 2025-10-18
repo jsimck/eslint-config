@@ -1,7 +1,23 @@
-import base from './rules/base.js';
-import imprt from './rules/import.js';
-import prettier from './rules/prettier.js';
-import react from './rules/react.js';
-import typescript from './rules/typescript.js';
+import {
+  base,
+  imprt,
+  javascript,
+  prettier,
+  react,
+  sonarjs,
+  typescript,
+  unicorn,
+  unusedImports,
+} from './src/configs/index.js';
 
-export default [...base, ...imprt, ...typescript, ...react, ...prettier];
+export default [
+  ...base,
+  ...javascript,
+  ...typescript,
+  ...react,
+  ...imprt,
+  ...sonarjs,
+  ...unicorn,
+  ...unusedImports,
+  ...prettier,
+];

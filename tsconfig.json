@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    // Compiler features
+    "jsx": "react-jsx", // support JSX
+    "allowJs": true, // allow importing `.js` from `.ts`
+    "resolveJsonModule": true,
+    "noEmit": false,
+    "outDir": "./dist",
+
+    // More efficient builds + references support
+    "composite": true,
+    "incremental": true,
+
+    // Enable latest ES Features
+    "useDefineForClassFields": true,
+
+    // Backwards compatibility
+    "esModuleInterop": true,
+    "isolatedModules": true,
+
+    // Best practices
+    "moduleDetection": "force",
+    "skipLibCheck": true,
+    "verbatimModuleSyntax": true, // Force the use of type
+
+    // Type checking flags
+    "strict": true, // enables all strict rules
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "useUnknownInCatchVariables": true,
+    "noPropertyAccessFromIndexSignature": true,
+  },
+  "include": [
+    "src/**/*",
+    "./dist/cjs/index.js"
+  ]
+}

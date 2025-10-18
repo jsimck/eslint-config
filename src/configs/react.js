@@ -1,25 +1,39 @@
-import reactJsxRuntime from 'eslint-plugin-react/configs/jsx-runtime.js';
-import reactRecommended from 'eslint-plugin-react/configs/recommended.js';
+import jsxAlly from 'eslint-plugin-jsx-a11y';
+import reactPlugin from 'eslint-plugin-react';
+import hooksPlugin from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
+
+import { files } from '../utils/helpers.js';
 
 export default [
   {
-    files: ['**/*.jsx', '**/*.tsx'],
-    ...reactRecommended,
-    ...reactJsxRuntime,
+    files: files.jsx,
+    plugins: {
+      react: reactPlugin,
+      'jsx-a11y': jsxAlly,
+      'react-refresh': reactRefresh,
+    },
+    settings: {
+      react: {
+        version: '18',
+      },
+    },
     rules: {
-      'react/boolean-prop-naming': [
-        'error',
-        {
-          message:
-            'Invalid boolean prop name, use one of (is|has|show|hide) prefixes.',
-          propTypeNames: ['bool', 'mutuallyExclusiveTrueProps'],
-          rule: '^(is|has|show|hide)[A-Z]([A-Za-z0-9]?)+',
-        },
-      ],
-      'react/default-props-match-prop-types': [
-        'error',
-        { allowRequiredDefaults: true },
-      ],
+      ...reactPlugin.configs.recommended.rules,
+      ...reactPlugin.configs['jsx-runtime'].rules,
+      'react-refresh/only-export-components': 'warn',
+      'react/boolean-prop-naming': 'off',
+      // 'react/boolean-prop-naming': [
+      //   'error',
+      //   {
+      //     message:
+      //       'Invalid boolean prop name, use one of (is|has|show|hide) prefixes.',
+      //     propTypeNames: ['bool', 'mutuallyExclusiveTrueProps'],
+      //     rule: '^(is|has|show|hide)[A-Z]([A-Za-z0-9]?)+',
+      //   },
+      // ],
+      'react/jsx-no-useless-fragment': ['error', { allowExpressions: true }],
+      'react/default-props-match-prop-types': 'off',
       'react/display-name': ['off'],
       'react/function-component-definition': [
         'error',
@@ -42,27 +56,14 @@ export default [
       'react/no-this-in-sfc': 'error',
       'react/no-typos': 'error',
       'react/no-unsafe': 'error',
-      'react/no-unstable-nested-components': 'error',
+      'react/no-unstable-nested-components': ['warn', { allowAsProps: true }],
       'react/no-unused-class-component-methods': 'warn',
-      'react/no-unused-prop-types': [
-        'error',
-        {
-          customValidators: [],
-          skipShapeProps: true,
-        },
-      ],
+      'react/no-unused-prop-types': 'off',
       'react/no-unused-state': 'error',
       'react/no-will-update-set-state': 'error',
       'react/prefer-es6-class': ['error', 'always'],
       'react/prefer-stateless-function': 'error',
-      'react/prop-types': [
-        'warn',
-        {
-          customValidators: [],
-          ignore: [],
-          skipUndeclared: false,
-        },
-      ],
+      'react/prop-types': 'off',
       'react/require-render-return': 'error',
       'react/no-unknown-property': 'warn',
       'react/self-closing-comp': 'error',
@@ -120,8 +121,8 @@ export default [
         {
           eventHandlerPrefix: 'handle',
           eventHandlerPropPrefix: 'on',
-          checkLocalVariables: true,
-          checkInlineFunction: true,
+          checkLocalVariables: false,
+          checkInlineFunction: false,
         },
       ],
       'react/jsx-max-props-per-line': [
@@ -134,7 +135,6 @@ export default [
       'react/jsx-newline': ['error', { prevent: true }],
       'react/jsx-no-constructed-context-values': 'error',
       'react/jsx-no-script-url': 'error',
-      'react/jsx-no-useless-fragment': 'error',
       'react/jsx-one-expression-per-line': [
         'error',
         {
@@ -161,6 +161,16 @@ export default [
           return: 'parens-new-line',
         },
       ],
+    },
+  },
+  {
+    // Hooks are usually defined in non-jsx extension files
+    files: [...files.ts, ...files.js],
+    plugins: {
+      'react-hooks': hooksPlugin,
+    },
+    rules: {
+      ...hooksPlugin.configs.recommended.rules,
     },
   },
 ];
