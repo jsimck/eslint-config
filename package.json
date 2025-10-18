@@ -1,6 +1,6 @@
 {
   "name": "@jsimck/eslint-config",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Very opinionated eslint config I use on my projects, includes: prettier, TS, jest, sonarqube and unicorn. And many others.",
   "type": "module",
   "main": "./index.js",
