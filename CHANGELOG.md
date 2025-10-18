@@ -1,5 +1,11 @@
 # @jsimck/eslint-config
 
+## 2.0.0
+
+### Major Changes
+
+- [`4c7b374`](https://github.com/jsimck/eslint-config/commit/4c7b3743c6b046f8b7ceda9fce3332343823a641) Thanks [@jsimck](https://github.com/jsimck)! - Changed bunch of configurations and added new presets. (see README.md for more information). While this version should be backwards compatible, due the amount of chagnes, I chose to release it as major.
+
 ## 1.1.1
 
 ### Patch Changes
