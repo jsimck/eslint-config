@@ -1,5 +1,11 @@
 # @jsimck/eslint-config
 
+## 2.0.1
+
+### Patch Changes
+
+- [`2ebf315`](https://github.com/jsimck/eslint-config/commit/2ebf315f8590fde7731d9fde2ba885ed8b3fc2bf) Thanks [@jsimck](https://github.com/jsimck)! - Fixed broken release
+
 ## 2.0.0
 
 ### Major Changes
