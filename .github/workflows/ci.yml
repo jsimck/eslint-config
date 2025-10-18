@@ -23,4 +23,25 @@ jobs:
           cache: 'pnpm'
 
       - name: Run lint
-        run: npm run lint
+        run: pnpm lint
+
+        # Create release PR
+      - if: github.ref != 'refs/heads/main'
+        name: Create Release Pull Request
+        uses: changesets/action@v1
+        with:
+          title: Release Version
+          commit: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+        # Publish to NPM
+      - if: github.ref == 'refs/heads/main'
+        name: Publish to NPM
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: pnpm run release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
