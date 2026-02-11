@@ -2,6 +2,10 @@
   "name": "@jsimck/eslint-config",
   "version": "3.0.0-next.0",
   "description": "Very opinionated eslint config I use on my projects, includes: prettier, TS, vitest, sonarqube and unicorn. And many others.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jsimck/eslint-config"
+  },
   "type": "module",
   "main": "./index.js",
   "exports": {
