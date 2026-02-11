@@ -6,6 +6,7 @@
   },
   "changesets": [
     "eslint-10-upgrade",
-    "short-bags-bet"
+    "short-bags-bet",
+    "yellow-beans-tap"
   ]
 }

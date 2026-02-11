@@ -1,5 +1,11 @@
 # @jsimck/eslint-config
 
+## 3.0.0-next.2
+
+### Patch Changes
+
+- [#8](https://github.com/jsimck/eslint-config/pull/8) [`4b34376`](https://github.com/jsimck/eslint-config/commit/4b343763ed7b8e6cd51a2531c5e676f4cfd4ee9f) Thanks [@jsimck](https://github.com/jsimck)! - Sonar rules revision, reneabled most configs on all files
+
 ## 3.0.0-next.1
 
 ### Patch Changes
