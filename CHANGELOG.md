@@ -1,5 +1,11 @@
 # @jsimck/eslint-config
 
+## 3.0.0-next.0
+
+### Major Changes
+
+- [#7](https://github.com/jsimck/eslint-config/pull/7) [`adf5563`](https://github.com/jsimck/eslint-config/commit/adf5563d3c111ff78eef6cd9eee232c9f31d093c) Thanks [@github-actions](https://github.com/apps/github-actions)! - Upgrade to ESLint 10 and bump all dependencies to latest versions. Peer dep changed from `eslint >=98` to `eslint >=10`. Notable: react-hooks v7 (adds React Compiler rules), unicorn v63, @stylistic v5, globals v17.
+
 ## 2.0.1
 
 ### Patch Changes
