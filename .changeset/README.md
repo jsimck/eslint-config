@@ -17,7 +17,7 @@ Used to publish prerelease versions under the `next` npm tag before merging to `
 
 ```bash
 git checkout next
-changeset pre enter rc
+changeset pre enter next
 git add .changeset/pre.json
 git commit -m "chore: enter rc prerelease mode"
 git push
@@ -27,7 +27,7 @@ git push
 
 1. Add changesets as usual: `pnpm changeset`
 2. Push to `next`
-3. CI creates a "Release RC Version" PR with RC version bumps (e.g. `3.0.0-rc.0`)
+3. CI creates a "Release RC Version" PR with RC version bumps (e.g. `3.0.0-next.0`)
 4. Merge the release PR → CI publishes to npm under the `next` tag
 
 ### Installing RCs

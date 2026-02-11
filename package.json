@@ -13,7 +13,7 @@
   },
   "scripts": {
     "release": "changeset publish",
-    "release:next": "changeset publish --tag next",
+    "release:next": "changeset publish",
     "changeset": "changeset add",
     "changeset:enter:next": "changeset pre enter next",
     "lint": "eslint .",
