@@ -4,5 +4,7 @@
   "initialVersions": {
     "@jsimck/eslint-config": "2.0.1"
   },
-  "changesets": []
+  "changesets": [
+    "eslint-10-upgrade"
+  ]
 }
