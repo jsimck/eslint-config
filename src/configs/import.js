@@ -2,7 +2,8 @@ import importPlugin from 'eslint-plugin-import-x';
 
 import { files } from '../utils/helpers.js';
 
-export default [
+/** @type {import('eslint').Linter.Config[]} */
+const config = [
   {
     files: [...files.js, ...files.ts],
     plugins: { 'import-x': importPlugin },
@@ -11,7 +12,7 @@ export default [
         espree: ['.js', '.cjs', '.mjs', '.jsx'],
       },
       'import-x/resolver': {
-        typescript: true,
+        typescript: { alwaysTryTypes: true },
         node: true,
       },
     },
@@ -60,3 +61,5 @@ export default [
     },
   },
 ];
+
+export default config;

@@ -1,3 +1,4 @@
+import stylistic from '@stylistic/eslint-plugin';
 import globals from 'globals';
 
 import { files } from '../utils/helpers.js';
@@ -20,6 +21,9 @@ export default [
   },
   {
     files: [...files.js, ...files.ts],
+    plugins: {
+      '@stylistic': stylistic,
+    },
     languageOptions: {
       globals: {
         ...globals.browser,
@@ -31,9 +35,8 @@ export default [
       },
     },
     rules: {
-      // Stylistic has to be migrated -->>
       // Lines between class member methods
-      'lines-between-class-members': [
+      '@stylistic/lines-between-class-members': [
         'error',
         'always',
         {
@@ -42,7 +45,7 @@ export default [
       ],
 
       // Line spacing
-      'padding-line-between-statements': [
+      '@stylistic/padding-line-between-statements': [
         'error',
         {
           blankLine: 'always',

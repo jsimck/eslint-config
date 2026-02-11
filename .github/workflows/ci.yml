@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - next
   pull_request:
   workflow_call:
 
@@ -33,23 +34,24 @@ jobs:
       - name: Run lint
         run: pnpm lint
 
-        # Create release PR
-      - if: github.ref != 'refs/heads/main'
-        name: Create Release Pull Request
-        uses: changesets/action@v1
-        with:
-          title: Release Version
-          commit: Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-        # Publish to NPM
+        # Publish stable release to NPM
       - if: github.ref == 'refs/heads/main'
         name: Publish to NPM
-        id: changesets
         uses: changesets/action@v1
         with:
           publish: pnpm run release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+        # Publish RC release to NPM
+      - if: github.ref == 'refs/heads/next'
+        name: Publish RC to NPM
+        uses: changesets/action@v1
+        with:
+          publish: pnpm run release:next
+          title: Release RC Version
+          commit: Release RC
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

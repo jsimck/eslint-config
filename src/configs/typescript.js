@@ -2,7 +2,27 @@ import tsEslint from 'typescript-eslint';
 
 import { files } from '../utils/helpers.js';
 
-export default [
+/**
+ * @param {import('eslint').Linter.Config | import('eslint').Linter.Config[]} preset
+ * @returns {import('eslint').Linter.RulesRecord}
+ */
+const extractRules = preset => {
+  const presets = Array.isArray(preset) ? preset : [preset];
+
+  return presets.reduce(
+    (rules, entry) => (entry?.rules ? { ...rules, ...entry.rules } : rules),
+    /** @type {import('eslint').Linter.RulesRecord} */ ({}),
+  );
+};
+
+const recommendedRules = {
+  ...extractRules(tsEslint.configs.eslintRecommended),
+  ...extractRules(tsEslint.configs.recommended),
+  ...extractRules(tsEslint.configs.stylistic),
+};
+
+/** @type {import('eslint').Linter.Config[]} */
+const config = [
   {
     files: files.ts,
     languageOptions: {
@@ -18,9 +38,7 @@ export default [
       '@typescript-eslint': tsEslint.plugin,
     },
     rules: {
-      ...tsEslint.configs.eslintRecommended.rules,
-      ...tsEslint.configs.recommended.rules,
-      ...tsEslint.configs.stylistic.rules,
+      ...recommendedRules,
       '@typescript-eslint/prefer-nullish-coalescing': 'off',
       'default-param-last': 'off',
       '@typescript-eslint/default-param-last': 'error',
@@ -56,3 +74,5 @@ export default [
     },
   },
 ];
+
+export default config;

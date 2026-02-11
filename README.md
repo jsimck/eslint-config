@@ -1,19 +1,20 @@
 # @jsimck/eslint-config
-An extensible shared ESLint configuration. Comes pre-configured with **Prettier**, opinionated rules for JavaScript, TypeScript projects including React, Next.JS, jest **eslint plugins** and more.
 
-The config uses new [flat config](https://eslint.org/docs/user-guide/configuring/configuration-files#configuration-file-formats) format, which is supported by eslint 7.0.0 and above. This allows us to use `.mjs` extension and import other configs from npm packages.
+Opinionated shareable ESLint flat config for JavaScript/TypeScript projects, including React, import ordering, SonarJS, Unicorn, and Prettier.
 
-Base config includes configurations for multiple frameworks (JS, TS, React, jest, import formatting) with some additional configs, you can use to extend the default one (see section below).
+## Requirements
+
+- `eslint >= 10`
 
 ## Install
-```
-pnpm add -D eslint@8 @jsimck/eslint-config
-```
 
-> *We are currently stuck on eslint v8 until all of the config dependencies are compatible with new v9*
+```bash
+pnpm add -D eslint@10 @jsimck/eslint-config
+```
 
 ## Usage
-Create `eslint.config.mjs` in the root of your directory with following contents:
+
+Create `eslint.config.js` (or `eslint.config.mjs`) in your project root:
 
 ```js
 import baseConfig from '@jsimck/eslint-config';
@@ -21,83 +22,68 @@ import baseConfig from '@jsimck/eslint-config';
 export default [...baseConfig];
 ```
 
-### Running eslint
-Below is simple code snippet you can add to your package.json to run eslint:
+## Lint Scripts
 
 ```json
 {
   "scripts": {
-    "lint": "ESLINT_USE_FLAT_CONFIG=true eslint -c eslint.config.mjs './**/*.{js,ts,jsx,tsx,cjs,mjs}'",
-    "lint:fix": "pnpm lint --fix",
+    "lint": "eslint .",
+    "lint:fix": "pnpm lint --fix"
   }
 }
 ```
 
-## Configs
+## Available Configs
 
-Each config is a separate file, which can be imported and used in your config. For example, to use Next.JS config, you can do:
+Default export already includes several presets. You can also compose extra presets manually from `@jsimck/eslint-config/src/configs/index.js`.
+
+| Config Name             | Description                                                       | Included In Default |
+| ----------------------- | ----------------------------------------------------------------- | ------------------- |
+| `base`                  | Base ignores, globals, parser options, core style spacing rules   | ✅                  |
+| `javascript`            | `@eslint/js` recommended + custom JS rules                        | ✅                  |
+| `typescript`            | TypeScript parser and non-typechecked TS rules                    | ✅                  |
+| `react`                 | `eslint-plugin-react`, `react-hooks`, `react-refresh`, `jsx-a11y` | ✅                  |
+| `imprt`                 | `eslint-plugin-import-x` rules and resolver setup                 | ✅                  |
+| `sonarjs`               | `eslint-plugin-sonarjs` recommended + overrides                   | ✅                  |
+| `unicorn`               | `eslint-plugin-unicorn` recommended + overrides                   | ✅                  |
+| `unusedImports`         | `eslint-plugin-unused-imports`                                    | ✅                  |
+| `prettier`              | `eslint-plugin-prettier/recommended` + local prettier options     | ✅                  |
+| `vitest`                | `@vitest/eslint-plugin` rules for tests                           | ❌                  |
+| `typescriptTypeChecked` | Type-aware TypeScript rules (requires project service)            | ❌                  |
+| `sortClassMembers`      | `eslint-plugin-sort-class-members`                                | ❌                  |
+
+Example with optional configs:
 
 ```js
 import baseConfig from '@jsimck/eslint-config';
-import { next } from '@jsimck/eslint-config/configs';
+import {
+  vitest,
+  typescriptTypeChecked,
+  sortClassMembers,
+} from '@jsimck/eslint-config/configs';
 
-export default [...baseConfig, ...next];
+export default [
+  ...baseConfig,
+  ...typescriptTypeChecked,
+  ...sortClassMembers,
+  ...vitest,
+];
 ```
 
-Check following table for all aviailable configs:
+## VS Code
 
-| Config name             | Description                                                                                           | Included in default config |
-|-------------------------|-------------------------------------------------------------------------------------------------------|----------------------------|
-| `base`                    | Base config, includes language settings, globals, parser options                                      | ✅                          |
-| `javascript`              | Extends eslint recommended settings with some custom overrides                                        | ✅                          |
-| `imprt`                   | `eslint-plugin-import-x`                                                                              | ✅                          |
-| `sortClassMembers`        | `eslint-plugin-sort-class-members`                                                                    | ✅                          |
-| `unusedImports`           | `eslint-plugin-unused-imports`                                                                        | ✅                          |
-| `unicorn`                 | `eslint-plugin-unicorn`                                                                               | ✅                          |
-| `prettier`                | `plugin:prettier/recommended`                                                                         | ✅                          |
-| `react`                   | `eslint-plugin-react`, `eslint-plugin-react-hooks`                                                    | ✅                          |
-| `typescript`              | `@typescript-eslint/eslint-plugin`                                                                    | ✅                          |
-| `jest`                    | `eslint-plugin-jest`, `eslint-plugin-jest-formatting`                                                 | ❌                          |
-| `typescriptTypeChecked`   | Enables type-checking and type-checked rules (**impacts performance**)                                | ❌                          |
-| `next`                    | `@next/eslint-plugin-next`                                                                            | ❌                          |
+No special VS Code ESLint settings are required for flat config with current ESLint/extension versions.
 
-## FAQ
+## Contributing
 
-**Q: Does this work with VSCode eslint plugin?**
+Include a [changeset](https://github.com/changesets/changesets) with user-facing changes:
 
-**A:** Yes, due to flat config and (.mjs) extension, you have to enable some settings:
-
-```json
-{
-  "eslint.experimental.useFlatConfig": true,
-  "eslint.options": {
-    "overrideConfigFile": "eslint.config.mjs"
-  },
-}
+```bash
+pnpm changeset
 ```
 
-## Contribution guide
-
-Every PR implementing new feature should include [changeset](https://github.com/changesets/changesets). Use `pnpm changeset` from the root of the repository to generate new changeset and include it with your PR.
-
-### Release
-
-Make sure all new features are merged to `main` and you are on `main` branch including their changesets. and run:
+## Release
 
 ```bash
 pnpm release
-```
-
-#### RC Versions
-
-To enter RC mode, run:
-
-```bash
-pnpm release:rc:enter
-```
-
-when in RC mode, all version releases will have `-rc` suffix. To exit RC mode, run:
-
-```bash
-pnpm release:rc:exit
 ```

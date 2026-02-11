@@ -5,7 +5,8 @@ import reactRefresh from 'eslint-plugin-react-refresh';
 
 import { files } from '../utils/helpers.js';
 
-export default [
+/** @type {import('eslint').Linter.Config[]} */
+const config = [
   {
     files: files.jsx,
     plugins: {
@@ -15,23 +16,14 @@ export default [
     },
     settings: {
       react: {
-        version: '18',
+        version: 'detect',
       },
     },
     rules: {
-      ...reactPlugin.configs.recommended.rules,
-      ...reactPlugin.configs['jsx-runtime'].rules,
+      ...reactPlugin.configs.flat.recommended.rules,
+      ...reactPlugin.configs.flat['jsx-runtime'].rules,
       'react-refresh/only-export-components': 'warn',
       'react/boolean-prop-naming': 'off',
-      // 'react/boolean-prop-naming': [
-      //   'error',
-      //   {
-      //     message:
-      //       'Invalid boolean prop name, use one of (is|has|show|hide) prefixes.',
-      //     propTypeNames: ['bool', 'mutuallyExclusiveTrueProps'],
-      //     rule: '^(is|has|show|hide)[A-Z]([A-Za-z0-9]?)+',
-      //   },
-      // ],
       'react/jsx-no-useless-fragment': ['error', { allowExpressions: true }],
       'react/default-props-match-prop-types': 'off',
       'react/display-name': ['off'],
@@ -170,7 +162,9 @@ export default [
       'react-hooks': hooksPlugin,
     },
     rules: {
-      ...hooksPlugin.configs.recommended.rules,
+      ...hooksPlugin.configs['recommended-latest'].rules,
     },
   },
 ];
+
+export default config;
