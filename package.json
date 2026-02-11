@@ -15,6 +15,7 @@
     "release": "changeset publish",
     "release:next": "changeset publish --tag next",
     "changeset": "changeset add",
+    "changeset:enter:next": "changeset pre enter next",
     "lint": "eslint .",
     "lint:fix": "pnpm lint --fix"
   },
