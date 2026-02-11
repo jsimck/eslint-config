@@ -1,10 +1,7 @@
 import js from '@eslint/js';
 
-import { files } from '../utils/helpers.js';
-
 export default [
   {
-    files: [...files.js],
     ...js.configs.recommended,
     rules: {
       ...js.configs.recommended.rules,

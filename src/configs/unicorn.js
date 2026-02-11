@@ -4,7 +4,6 @@ import { files } from '../utils/helpers.js';
 
 export default [
   {
-    files: [...files.ts, ...files.js],
     ...unicorn.configs.recommended,
     rules: {
       ...unicorn.configs.recommended.rules,

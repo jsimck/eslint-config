@@ -1,8 +1,6 @@
 import stylistic from '@stylistic/eslint-plugin';
 import globals from 'globals';
 
-import { files } from '../utils/helpers.js';
-
 export default [
   {
     ignores: [
@@ -20,7 +18,6 @@ export default [
     ],
   },
   {
-    files: [...files.js, ...files.ts],
     plugins: {
       '@stylistic': stylistic,
     },

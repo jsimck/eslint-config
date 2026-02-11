@@ -2,14 +2,10 @@
 
 Opinionated shareable ESLint flat config for JavaScript/TypeScript projects, including React, import ordering, SonarJS, Unicorn, and Prettier.
 
-## Requirements
-
-- `eslint >= 10`
-
 ## Install
 
 ```bash
-pnpm add -D eslint@10 @jsimck/eslint-config
+pnpm add -D eslint@9 @jsimck/eslint-config
 ```
 
 ## Usage

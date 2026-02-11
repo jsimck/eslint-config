@@ -1,11 +1,8 @@
 import importPlugin from 'eslint-plugin-import-x';
 
-import { files } from '../utils/helpers.js';
-
 /** @type {import('eslint').Linter.Config[]} */
 const config = [
   {
-    files: [...files.js, ...files.ts],
     plugins: { 'import-x': importPlugin },
     settings: {
       'import-x/parsers': {
