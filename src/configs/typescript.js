@@ -40,6 +40,10 @@ const config = [
     rules: {
       ...recommendedRules,
       '@typescript-eslint/prefer-nullish-coalescing': 'off',
+      '@typescript-eslint/no-empty-object-type': 'off',
+      '@typescript-eslint/no-unsafe-function-type': 'off',
+      '@typescript-eslint/class-literal-property-style': 'off',
+      '@typescript-eslint/consistent-generic-constructors': 'off',
       'default-param-last': 'off',
       '@typescript-eslint/default-param-last': 'error',
       '@typescript-eslint/method-signature-style': ['error', 'property'],

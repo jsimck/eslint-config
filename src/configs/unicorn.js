@@ -5,13 +5,15 @@ import { files } from '../utils/helpers.js';
 export default [
   {
     files: [...files.ts, ...files.js],
-    ...unicorn.configs['flat/recommended'],
+    ...unicorn.configs.recommended,
     rules: {
-      ...unicorn.configs['flat/recommended'].rules,
+      ...unicorn.configs.recommended.rules,
       'unicorn/filename-case': 'off',
       'unicorn/no-array-callback-reference': 'off',
       'unicorn/no-array-for-each': 'off',
       'unicorn/no-array-reduce': 'off',
+      'unicorn/no-array-sort': 'off',
+      'unicorn/no-array-reverse': 'off',
       'unicorn/no-document-cookie': 'warn',
       'unicorn/no-null': 'off',
       'unicorn/no-static-only-class': 'off',
@@ -21,7 +23,7 @@ export default [
         { onlyIfContainsSeparator: true },
       ],
       'unicorn/prefer-export-from': ['error', { ignoreUsedVariables: true }],
-      'unicorn/prefer-module': 'warn',
+      'unicorn/prefer-module': 'off',
       'unicorn/switch-case-braces': ['error', 'avoid'],
       'unicorn/prefer-object-from-entries': 'warn',
       'unicorn/catch-error-name': 'off',

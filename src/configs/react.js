@@ -22,7 +22,7 @@ const config = [
     rules: {
       ...reactPlugin.configs.flat.recommended.rules,
       ...reactPlugin.configs.flat['jsx-runtime'].rules,
-      'react-refresh/only-export-components': 'warn',
+      'react-refresh/only-export-components': 'off',
       'react/boolean-prop-naming': 'off',
       'react/jsx-no-useless-fragment': ['error', { allowExpressions: true }],
       'react/default-props-match-prop-types': 'off',
@@ -41,7 +41,7 @@ const config = [
       'react/no-arrow-function-lifecycle': 'error',
       'react/no-did-update-set-state': 'error',
       'react/no-find-dom-node': 'error',
-      'react/no-multi-comp': 'error',
+      'react/no-multi-comp': 'off',
       'react/no-namespace': 'error',
       'react/no-redundant-should-component-update': 'error',
       'react/no-invalid-html-attribute': 'error',
