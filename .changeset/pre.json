@@ -5,6 +5,7 @@
     "@jsimck/eslint-config": "2.0.1"
   },
   "changesets": [
-    "eslint-10-upgrade"
+    "eslint-10-upgrade",
+    "short-bags-bet"
   ]
 }

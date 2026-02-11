@@ -1,5 +1,11 @@
 # @jsimck/eslint-config
 
+## 3.0.0-next.1
+
+### Patch Changes
+
+- [#8](https://github.com/jsimck/eslint-config/pull/8) [`a7af6d4`](https://github.com/jsimck/eslint-config/commit/a7af6d479ef147c425309be69bbe2a7a22777967) Thanks [@jsimck](https://github.com/jsimck)! - Reverted to eslint 9 due to plugin incompatibility
+
 ## 3.0.0-next.0
 
 ### Major Changes
