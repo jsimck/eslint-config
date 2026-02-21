@@ -1,10 +1,7 @@
 import sortClassMembers from 'eslint-plugin-sort-class-members';
 
-import { files } from '../utils/helpers.js';
-
 export default [
   {
-    files: [...files.js, ...files.ts],
     ...sortClassMembers.configs['flat/recommended'],
     rules: {
       ...sortClassMembers.configs['flat/recommended'].rules,
