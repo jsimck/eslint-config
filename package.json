@@ -1,6 +1,6 @@
 {
   "name": "@jsimck/eslint-config",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "Opinionated ESLint 9 flat config with TypeScript, React, Prettier, Vitest, SonarJS, Unicorn, import sorting, unused imports, JSX a11y, and more.",
   "keywords": [
     "eslint",
