@@ -31,11 +31,12 @@ export default [...baseConfig];
 
 ## Available Configs
 
-Default export already includes several presets. You can also compose extra presets manually from `@jsimck/eslint-config/src/configs/index.js`.
+Default export already includes several presets. You can also import individual configs from `@jsimck/eslint-config/configs`.
 
 | Config Name             | Description                                                       | Included In Default |
 | ----------------------- | ----------------------------------------------------------------- | ------------------- |
-| `base`                  | Base ignores, globals, parser options, core style spacing rules   | ✅                  |
+| `base`                  | Global ignores, browser/node globals, parser options              | ✅                  |
+| `stylistic`             | `@stylistic/eslint-plugin` spacing and line rules                 | ✅                  |
 | `javascript`            | `@eslint/js` recommended + custom JS rules                        | ✅                  |
 | `typescript`            | TypeScript parser and non-typechecked TS rules                    | ✅                  |
 | `react`                 | `eslint-plugin-react`, `react-hooks`, `react-refresh`, `jsx-a11y` | ✅                  |
@@ -66,9 +67,109 @@ export default [
 ];
 ```
 
-## VS Code
+## Advanced Usage
 
-No special VS Code ESLint settings are required for flat config with current ESLint/extension versions.
+All configs are individually importable from `@jsimck/eslint-config/configs`, so you can compose only what you need:
+
+```js
+import {
+  base,
+  stylistic,
+  typescript,
+  react,
+  imprt,
+  unusedImports,
+} from '@jsimck/eslint-config/configs';
+
+export default [
+  ...base,
+  ...stylistic,
+  ...typescript,
+  ...react,
+  ...imprt,
+  ...unusedImports,
+];
+```
+
+> **Note:** The `base` config provides global ignores (node_modules, dist, build, etc.) and browser/node globals. It's recommended as a foundation for any custom composition.
+
+### Overriding Rules
+
+You can override any rule by appending your own config object after the presets:
+
+```js
+import baseConfig from '@jsimck/eslint-config';
+
+export default [
+  ...baseConfig,
+  {
+    rules: {
+      'prettier/prettier': ['error', { singleQuote: false, semi: false }],
+      '@typescript-eslint/no-explicit-any': 'off',
+    },
+  },
+];
+```
+
+### Adding Prettier Plugins
+
+The `prettierOptions` object is exported separately, so you can extend it with plugins like Tailwind CSS class sorting:
+
+```js
+import { createRequire } from 'node:module';
+import baseConfig from '@jsimck/eslint-config';
+import { prettierOptions } from '@jsimck/eslint-config/configs';
+
+const require = createRequire(import.meta.url);
+
+export default [
+  ...baseConfig,
+  {
+    rules: {
+      'prettier/prettier': [
+        'error',
+        {
+          ...prettierOptions,
+          plugins: [
+            require.resolve('prettier-plugin-tailwindcss'),
+          ],
+        },
+      ],
+    },
+  },
+];
+```
+
+### Replacing a Config
+
+To use the defaults but swap out a specific config (e.g. use your own prettier setup), import configs individually and omit what you don't need:
+
+```js
+import {
+  base,
+  stylistic,
+  javascript,
+  typescript,
+  react,
+  imprt,
+  sonarjs,
+  unicorn,
+  unusedImports,
+} from '@jsimck/eslint-config/configs';
+
+export default [
+  ...base,
+  ...stylistic,
+  ...javascript,
+  ...typescript,
+  ...react,
+  ...imprt,
+  ...sonarjs,
+  ...unicorn,
+  ...unusedImports,
+  // your own prettier or formatting config here
+];
+```
 
 ## Contributing
 

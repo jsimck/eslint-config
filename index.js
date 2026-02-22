@@ -5,6 +5,7 @@ import {
   prettier,
   react,
   sonarjs,
+  stylistic,
   typescript,
   unicorn,
   unusedImports,
@@ -12,6 +13,7 @@ import {
 
 export default [
   ...base,
+  ...stylistic,
   ...javascript,
   ...typescript,
   ...react,

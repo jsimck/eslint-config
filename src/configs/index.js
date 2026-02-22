@@ -1,8 +1,9 @@
 export { default as base } from './base.js';
+export { default as stylistic } from './stylistic.js';
 export { default as javascript } from './javascript.js';
 export { default as imprt } from './import.js';
 export { default as vitest } from './vitest.js';
-export { default as prettier } from './prettier.js';
+export { default as prettier, prettierOptions } from './prettier.js';
 export { default as react } from './react.js';
 export { default as typescript } from './typescript.js';
 export { default as unusedImports } from './unusedImports.js';
