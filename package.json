@@ -19,6 +19,7 @@
     "release": "changeset publish",
     "release:next": "changeset publish",
     "changeset": "changeset add",
+    "changeset:version": "changeset add",
     "changeset:next:enter": "changeset pre enter next",
     "changeset:next:exit": "changeset pre exit",
     "lint": "eslint .",
