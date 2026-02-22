@@ -1,11 +1,37 @@
 {
   "name": "@jsimck/eslint-config",
   "version": "3.0.0",
-  "description": "Very opinionated eslint config I use on my projects, includes: prettier, TS, vitest, sonarqube and unicorn. And many others.",
+  "description": "Opinionated ESLint 9 flat config with TypeScript, React, Prettier, Vitest, SonarJS, Unicorn, import sorting, unused imports, JSX a11y, and more.",
+  "keywords": [
+    "eslint",
+    "eslint-config",
+    "eslint-flat-config",
+    "eslint9",
+    "typescript",
+    "react",
+    "prettier",
+    "vitest",
+    "sonarjs",
+    "unicorn",
+    "import",
+    "unused-imports",
+    "jsx-a11y",
+    "react-hooks",
+    "react-refresh",
+    "stylistic",
+    "opinionated",
+    "flat-config"
+  ],
+  "homepage": "https://github.com/jsimck/eslint-config#readme",
+  "bugs": {
+    "url": "https://github.com/jsimck/eslint-config/issues"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/jsimck/eslint-config"
   },
+  "license": "MIT",
+  "author": "jsimck",
   "type": "module",
   "main": "./index.js",
   "exports": {
