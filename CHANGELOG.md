@@ -1,5 +1,11 @@
 # @jsimck/eslint-config
 
+## 3.0.1
+
+### Patch Changes
+
+- [`849963d`](https://github.com/jsimck/eslint-config/commit/849963d0fcfcca276861b49b6ea11f90208390ed) Thanks [@jsimck](https://github.com/jsimck)! - updated package.json metadata
+
 ## 3.0.0
 
 ### Major Changes
