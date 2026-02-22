@@ -1,5 +1,19 @@
 # @jsimck/eslint-config
 
+## 3.0.0
+
+### Major Changes
+
+- [#8](https://github.com/jsimck/eslint-config/pull/8) [`adf5563`](https://github.com/jsimck/eslint-config/commit/adf5563d3c111ff78eef6cd9eee232c9f31d093c) Thanks [@jsimck](https://github.com/jsimck)! - Upgrade to ESLint 9 and bump all dependencies to latest versions. Peer dep changed from `eslint >=8` to `eslint 9`. Notable: react-hooks v7 (adds React Compiler rules), unicorn v63, @stylistic v5, globals v17.
+
+- [`cb0b0ca`](https://github.com/jsimck/eslint-config/commit/cb0b0ca1ed82900c429e73df629fa3fa14bb428d) Thanks [@jsimck](https://github.com/jsimck)! - V3 release with ESLint 9 support, flat config and all dependencies updated including some new recommended configs.
+
+### Patch Changes
+
+- [#8](https://github.com/jsimck/eslint-config/pull/8) [`a7af6d4`](https://github.com/jsimck/eslint-config/commit/a7af6d479ef147c425309be69bbe2a7a22777967) Thanks [@jsimck](https://github.com/jsimck)! - Reverted to eslint 9 due to plugin incompatibility
+
+- [#8](https://github.com/jsimck/eslint-config/pull/8) [`4b34376`](https://github.com/jsimck/eslint-config/commit/4b343763ed7b8e6cd51a2531c5e676f4cfd4ee9f) Thanks [@jsimck](https://github.com/jsimck)! - Sonar rules revision, reneabled most configs on all files
+
 ## 3.0.0-next.2
 
 ### Patch Changes
