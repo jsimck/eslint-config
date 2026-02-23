@@ -11,6 +11,7 @@ on:
 jobs:
   ci:
     name: CI
+    if: ${{ github.head_ref != 'changeset-release/main' && github.head_ref != 'changeset-release/next' }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
