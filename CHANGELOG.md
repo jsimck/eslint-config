@@ -1,5 +1,17 @@
 # @jsimck/eslint-config
 
+## 3.1.0
+
+### Minor Changes
+
+- [`ef55c06`](https://github.com/jsimck/eslint-config/commit/ef55c06341cddd1b90bf152e830dc72dfd7243b1) Thanks [@jsimck](https://github.com/jsimck)! - - Extract stylistic rules from `base` into a separate `stylistic` config
+  - `base` is now minimal: global ignores, browser/node/es2025 globals, parser options
+  - Export `prettierOptions` for easy extension with plugins (e.g. Tailwind)
+  - Add `globals.es2025` for modern JS builtins (Iterator, Float16Array, etc.)
+  - Add `**/__generated__/**` to default ignores (GraphQL codegen)
+  - Remove `**/docs/**` and `**/node_modules/**` from ignores (too broad / redundant)
+  - Add Advanced Usage section to README (composing, overriding, prettier plugins)
+
 ## 3.0.1
 
 ### Patch Changes
